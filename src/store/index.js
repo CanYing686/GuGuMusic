@@ -1,4 +1,5 @@
 import {createStore} from 'vuex';
+import {getMusicLyric} from "@/request/api/musicListItem";
 
 export default createStore({
     state: {
@@ -18,7 +19,10 @@ export default createStore({
         }],
         playListIndex: 0,
         isBtnShow: true,
-        detailShow: false
+        detailShow: false,
+        lyricList: {},
+        currentTime: 0, //当前时间
+        duration:0
     },
     mutations: {
         updateIsBtnShow:function (state,value){
@@ -33,8 +37,22 @@ export default createStore({
         },
         updateDetailShow:function (state) {
             state.detailShow = !state.detailShow
+        },
+        updateLyricList:function (state,value){
+            state.lyricList = value;
+        },
+        updateCurrentTime:function (state,value) {
+            state.currentTime = value;
+        },
+        updateDuration:function (state,value){
+            state.duration = value;
         }
     },
-    actions: {},
+    actions: {
+        getLyric: async function (context,value) {
+            let res =await getMusicLyric(value)
+            context.commit("updateLyricList",res.data.lrc);
+        }
+    },
     modules: {}
 });

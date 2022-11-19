@@ -2,7 +2,6 @@
   <div class="container">
     <TheNav />
   </div>
-
   <FooterItem />
 </template>
 

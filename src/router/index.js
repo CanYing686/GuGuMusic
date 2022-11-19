@@ -30,6 +30,14 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../components/itemMusic.vue')
+  },
+  {
+    path: '/src/components/item/SearchMusic.vue',
+    name: 'SearchMusic',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../components/item/SearchMusic.vue')
   }
 ]
 const router = createRouter({

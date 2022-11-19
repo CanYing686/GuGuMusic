@@ -10,6 +10,14 @@ export function getBanner(){
 export function getMusicList(){
     return service({
         method: "GET",
-        url: "/personalized?limit=18"
+        url: "/personalized?limit=100"
     })
 }
+// 发现好歌单
+export function getSearchMusic(data){
+    return service({
+        method: "GET",
+        url: `/search?keywords=${data}`
+    })
+}
+

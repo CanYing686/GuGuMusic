@@ -42,9 +42,6 @@
         </div>
       </div>
     </div>
-    <div class="no-show">
-      132
-    </div>
   </div>
 
 
@@ -62,7 +59,6 @@ export default {
     const state = reactive({
       playlist: {},
       playitem: [],
-      a: "1"
     });
 
     onMounted(async () => {
@@ -92,6 +88,7 @@ export default {
     playMusic: function (i) {
       this.updatePlayerList(this.state.playitem);
       this.updatePlayLIndex(i);
+
     },
     ...mapMutations(['updatePlayerList', 'updatePlayLIndex'])
   }
