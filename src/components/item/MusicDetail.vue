@@ -25,7 +25,7 @@
     </div>
 
     <div class="footerContent">
-      <input type="range" class="range" min="0" :max="duration" v-model="currentTime" step="0.05">
+      <input type="range" class="range" min="0" :max="duration" v-model="this.currentTime" step="0.05">
     </div>
 
     <div class="detail__footer">
@@ -261,7 +261,6 @@ export default {
       background-image: -webkit-linear-gradient(right, #00ff32, yellow);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-
     }
   }
 

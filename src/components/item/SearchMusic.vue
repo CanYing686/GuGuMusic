@@ -5,8 +5,8 @@
   </div>
 
   <div class="MusicList" v-for="(item,index) in searchList" :key="index">
-    <div class="MusicList__item">
-      <div class="MusicList__name">
+    <div class="MusicList__item" >
+      <div class="MusicList__name" @click="updateIndex(item)">
         <p> {{ item.name }} </p>
       </div>
       <div class="MusicList__author">
@@ -39,6 +39,11 @@ export default {
       console.log(res)
       // 跳转
       this.$router.push({name: 'SearchMusic'}).catch(error => error);
+    },
+
+    updateIndex:function (item) {
+      this.$store.commit("pushPlayList",item);
+      this.$store.commit("updatePlayLIndex",this.$store.state.playList.length-1)
     }
   }
 }

@@ -1,5 +1,12 @@
 <template>
+
   <main class="main">
+
+    <div class="main__Top">
+      <router-link to="SwiperView">发现音乐</router-link>
+    </div>
+
+    <div class="Music__List">
       <div class="pic" v-for="(item,index) in this.state.imgList" :key="index">
         <router-link :to="{path:'/src/components/itemMusic.vue',query:{id:item.id}}">
           <div class="pic__in">
@@ -8,7 +15,9 @@
             <span>播放量:{{ changeCount(item.playCount) }} </span>
           </div>
         </router-link>
+      </div>
     </div>
+
   </main>
 </template>
 
@@ -34,23 +43,46 @@ export default {
       state.imgList = res.data.result;
       console.log(res)
     });
+
+
     return {state, changeCount};
   },
 
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
 .main {
-  width: 120rem;
   margin: 5rem auto;
+  width: 120rem;
+
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+
+  &__Top{
+    padding: 0 2.5rem;
+    font-size: 2rem;
+    font-weight: bolder;
+
+    a{
+      cursor: pointer;
+      border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+
+      &:hover{
+        color: rgba(0, 0, 0, 0.7);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+
+      }
+    }
+  }
+}
+.Music__List{
 }
 
 .pic {
-  padding: 1rem 2rem;
-
+  padding: 1rem 2.5rem;
+  display: inline-flex;
 }
 
 .pic__in {
@@ -65,14 +97,15 @@ export default {
   border-radius: 5px;
   width: 15rem;
   height: 15rem;
-  transition: all .5s;
+  transition: all .3s;
 
-}
-.pic:hover img{
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 a {
   color: black;
+
+  &:hover img{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
 }
 </style>

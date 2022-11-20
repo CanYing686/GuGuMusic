@@ -1,5 +1,6 @@
 import service from "..";
 
+// 轮播图
 export function getBanner(){
     return service({
         method: "GET",
@@ -10,7 +11,7 @@ export function getBanner(){
 export function getMusicList(){
     return service({
         method: "GET",
-        url: "/personalized?limit=100"
+        url: "/personalized?limit=18"
     })
 }
 // 发现好歌单

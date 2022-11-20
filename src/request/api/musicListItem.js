@@ -7,7 +7,7 @@ export function getMusicItemList(data){
         url: `/playlist/detail?id=${data}`
     })
 }
-
+// 获取歌单歌曲
 export function getItemList(data){
     return service({
         method: 'GET',

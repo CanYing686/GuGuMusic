@@ -15,11 +15,16 @@
       <button @click="play" v-else>暂停</button>
       <span>列表</span>
     </div>
-    <audio ref="audio"
-           :src="`https://music.163.com/song/media/outer/url?id=${playList[playListIndex].id}.mp3 `"></audio>
+    <audio ref="audio" :src="`https://music.163.com/song/media/outer/url?id=${playList[playListIndex].id}.mp3 `"></audio>
     <van-popup v-model:show="detailShow" position="bottom" :style="{ height: '100%' }">
       <MusicDetail :musicList="playList[playListIndex]" :play="play" :isBtnShow="isBtnShow" :addDuration="addDuration"/>
     </van-popup>
+
+    <div>
+      <input type="range" class="range" min="0" max="100" v-model="volume" @change="changeVolume(volume)" step="0.01" >
+      音量: {{this.volume}}
+    </div>
+
   </div>
 
 </template>
@@ -32,16 +37,24 @@ import MusicDetail from "@/components/item/MusicDetail";
 export default {
   data(){
     return{
-      interVal: 0
+      interVal: 0,
+      volume: 50
     }
   },
+
   methods: {
+    changeVolume: function(index = 0) {
+      this.$refs.audio.volume = index / 1000;
+      this.volume = index;
+    },
     play: function () {
+      console.log(this.$refs)
+
+
       if (this.$refs.audio.paused) {
         this.$refs.audio.play();
         this.updateIsBtnShow(false)
         this.updateTime();
-
       } else {
         this.$refs.audio.pause();
         this.updateIsBtnShow(true)
@@ -53,7 +66,8 @@ export default {
     },
     // 歌词延迟 100毫秒
     updateTime:function () {
-    this.interVal = setInterval(() =>{
+
+      this.interVal = setInterval(() =>{
         this.updateCurrentTime(this.$refs.audio.currentTime);
       },100)
     },
@@ -84,13 +98,13 @@ export default {
   updated() {
     this.$store.dispatch("getLyric",this.playList[this.playListIndex].id);
     this.addDuration()
+
   },
   mounted() {
     this.$store.dispatch("getLyric",this.playList[this.playListIndex].id);
     this.updateTime();
-
+    this.$refs.audio.volume = 0.05;
   }
-
 };
 </script>
 

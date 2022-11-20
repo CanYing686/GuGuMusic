@@ -25,7 +25,7 @@
     <div class="music">
       <div class="music__item" v-for="(Item,Index) in state.playitem" :key="Index" @click="playMusic(Index)">
         <div class="music__number">
-          {{Index + 1}}
+          {{ Index + 1 }}
         </div>
 
         <div class="music__left">
@@ -36,7 +36,7 @@
           <div class="music__left-right">
             <span>歌手: </span>
             <div class="" v-for="Item in Item.ar" :key="Item">
-              {{Item.name}}&nbsp;
+              {{ Item.name }}&nbsp;
             </div>
           </div>
         </div>
@@ -52,6 +52,7 @@ import {useRoute} from "vue-router";
 import {onMounted, reactive} from "@vue/runtime-core";
 import {getMusicItemList, getItemList} from "@/request/api/musicListItem";
 import {mapMutations} from "vuex";
+import service from "@/request";
 
 export default {
   name: "itemMusic",
@@ -65,13 +66,15 @@ export default {
       let id = useRoute().query.id;
       // 获取歌单详情页面
       let res = await getMusicItemList(id);
+      console.log('歌单详情页面')
       console.log(res);
       state.playlist = res.data.playlist;
       // 获取歌单歌曲
       let result = await getItemList(id);
       state.playitem = result.data.songs;
-
+      console.log('歌单歌曲列表')
       console.log(state.playitem);
+      console.log(service);
     });
 
     function ellipsis(value) {
