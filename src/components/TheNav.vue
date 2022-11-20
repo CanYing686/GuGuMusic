@@ -20,47 +20,25 @@
         <li class="nav__box">
           <router-link to="/" class="router-link">下载客户端</router-link>
         </li>
+        <li class="nav__box">
+          <router-link to="/SearchMusic" class="router-link">搜索音乐</router-link>
+        </li>
       </ul>
     </nav>
-    <div class="search">
-      <input type="search" class="search__input" placeholder="音乐/电台/明星" @keydown.enter="enterKey"
-             v-model="searchKey">
-    </div>
-  </header>
 
-<!--  <SearchMusic :searchList="searchList" />-->
+  </header>
 
   <router-view/>
 </template>
 
 <script>
-import {getSearchMusic} from "@/request/api/home";
-// import SearchMusic from "@/components/item/SearchMusic"
 
 
 export default {
   name: "TheNav",
   components:{
-    // SearchMusic
   },
-  data() {
-    return {
-      keyWorldList: [],
-      searchKey: "",
-      searchList: []
-    }
-  },
-  methods: {
-    enterKey: async function () {
-      this.keyWorldList.push(this.searchKey);
-      let res = await getSearchMusic(this.searchKey);
-      this.searchList = res.data.result.songs;
-      this.searchKey = ""
-      console.log(res)
-      // 跳转
-      this.$router.push({name: 'SearchMusic'}).catch(error => error);
-    }
-  }
+
 }
 </script>
 

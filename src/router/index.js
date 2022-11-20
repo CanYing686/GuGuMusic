@@ -24,7 +24,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../components/SwiperView.vue')
   },
   {
-    path: '/src/components/itemMusic.vue',
+    path: '/itemMusic',
     name: 'itemMusic',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -32,7 +32,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../components/itemMusic.vue')
   },
   {
-    path: '/src/components/item/SearchMusic.vue',
+    path: '/SearchMusic',
     name: 'SearchMusic',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

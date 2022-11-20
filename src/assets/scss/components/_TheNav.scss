@@ -6,7 +6,7 @@
 
   &__list {
     display: flex;
-    width: 60rem;
+    width: 80rem;
     justify-content: center;
     align-items: center;
 
@@ -18,11 +18,14 @@
 }
 
 .search {
+  margin-top: 5rem;
+  text-align: center;
+
   &__input {
-    border: black 1px solid;
-    width: 200px;
+    border: none;
+    border-bottom: 1px solid black;
+    width: 50rem;
     padding: 0.5rem 1rem;
-    border-radius: 25px;
 
     &:focus {
       outline: none;
