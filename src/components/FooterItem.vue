@@ -21,7 +21,7 @@
     </van-popup>
 
     <div>
-      <input type="range" class="range" min="0" max="100" v-model="volume" @change="changeVolume(volume)" step="0.01" >
+      <input type="range" class="range" min="0" max="100" v-model="volume " @change="changeVolume(volume)" step="1" >
       音量: {{this.volume}}
     </div>
 
@@ -41,7 +41,6 @@ export default {
       volume: 50
     }
   },
-
   methods: {
     changeVolume: function(index = 0) {
       this.$refs.audio.volume = index / 1000;
@@ -104,7 +103,7 @@ export default {
     this.$store.dispatch("getLyric",this.playList[this.playListIndex].id);
     this.updateTime();
     this.$refs.audio.volume = 0.05;
-  }
+  },
 };
 </script>
 

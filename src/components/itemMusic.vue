@@ -29,14 +29,15 @@
         </div>
 
         <div class="music__left">
+          <p>歌曲名称 </p>
           <div class="music__left-left">
-            <p>歌曲名称: {{ Item.name }} </p>
+            <p>{{ Item.name }} </p>
           </div>
 
           <div class="music__left-right">
             <span>歌手: </span>
-            <div class="" v-for="Item in Item.ar" :key="Item">
-              {{ Item.name }}&nbsp;
+            <div class="" v-for="(Item,index) in Item.ar" :key="Item">
+              <p v-if="index === 0"> {{ Item.name }}</p>
             </div>
           </div>
         </div>

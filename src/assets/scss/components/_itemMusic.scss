@@ -17,7 +17,26 @@
   border-radius: 2.5rem;
   width: 20rem;
   height: 20rem;
+  transition: all 1s ;
+  &:hover{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+    animation: runss 1s both;
+
+  }
+
+
 }
+
+@keyframes runss {
+  0%{
+    transform: translateY(-10px);
+  }
+
+  100%{
+    transform: scale(1.05) translateY(-10px);
+  }
+}
+
 
 .content__information {
 }
@@ -31,6 +50,7 @@
 }
 
 .content__item {
+  display: inline-block;
   cursor: pointer;
   align-self: stretch;
   font-size: 1.4rem;
@@ -39,23 +59,26 @@
 }
 
 .music {
-  padding: 2rem 10rem;
+  margin: 2rem 10rem;
+  display: grid;
+  grid: auto / auto auto auto;
+  font-size: 11px;
 
   &__number {
-    margin: 1rem;
+    margin-right: 1rem;
     font-size: 1.5rem;
   }
 
   & > * {
-    cursor: pointer;
     display: flex;
+    cursor: pointer;
     align-items: center;
     background-color: #fff;
     height: 5rem;
     border-radius: 10px;
-    padding: 0 2rem;
-    margin-bottom: .5rem;
+    margin: .5rem 1rem;
     transition: all .5s;
+    padding: 0 2rem;
   }
 
   & > *:hover {
@@ -65,6 +88,7 @@
 
   &__left {
     display: flex;
+    flex-direction: column;
     width: 100%;
 
     &-left {
