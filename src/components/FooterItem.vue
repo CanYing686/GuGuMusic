@@ -49,7 +49,6 @@ export default {
     play: function () {
       console.log(this.$refs)
 
-
       if (this.$refs.audio.paused) {
         this.$refs.audio.play();
         this.updateIsBtnShow(false)

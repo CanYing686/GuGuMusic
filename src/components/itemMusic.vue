@@ -74,6 +74,7 @@ export default {
       let result = await getItemList(id);
       state.playitem = result.data.songs;
       console.log('歌单歌曲列表')
+      console.log(result)
       console.log(state.playitem);
       console.log(service);
     });
@@ -85,8 +86,7 @@ export default {
       }
       return value;
     }
-
-    return {state, ellipsis};
+      return {state, ellipsis};
   },
   methods: {
     playMusic: function (i) {

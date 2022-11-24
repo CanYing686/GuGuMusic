@@ -7,6 +7,7 @@ export function getBanner(){
         url: "/banner?type=0"
     })
 }
+
 // 发现好歌单
 export function getMusicList(){
     return service({
@@ -14,6 +15,7 @@ export function getMusicList(){
         url: "/personalized?limit=18"
     })
 }
+
 // 发现好歌单
 export function getSearchMusic(data){
     return service({
@@ -21,4 +23,21 @@ export function getSearchMusic(data){
         url: `/search?keywords=${data}`
     })
 }
+
+// // 获取登录状态
+// export function getLoginStatus(){
+//     return service({
+//         method: 'GET',
+//         url: `/login/status`
+//     })
+// }
+
+// 手机号登录
+export function getPhoneLogin(data){
+    return service({
+        method: "GET",
+        url: `/login/cellphone?phone=${data.phone}&password=${data.password}`
+    })
+}
+
 

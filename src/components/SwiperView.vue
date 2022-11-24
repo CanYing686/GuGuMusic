@@ -3,7 +3,7 @@
   <main class="main">
 
     <div class="main__Top">
-      <router-link to="SwiperView">发现音乐</router-link>
+      发现音乐
     </div>
 
     <div class="Music__List">
@@ -54,11 +54,9 @@ export default {
 <style lang="scss" scoped>
 
 .main {
-  margin: 5rem auto;
-  width: 120rem;
-
-  display: flex;
-  flex-direction: column;
+  padding: 10rem 30rem;
+  width: 100%;
+  border-bottom: 1px solid black;
 
   &__Top{
     padding: 0 2.5rem;
@@ -78,11 +76,13 @@ export default {
   }
 }
 .Music__List{
+  display: grid;
+  grid-template-rows: 1.2fr 1.2fr 1.2fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .pic {
   padding: 1rem 2.5rem;
-  display: inline-flex;
 }
 
 .pic__in {
@@ -90,7 +90,6 @@ export default {
   display: flex;
   flex-direction: column;
   width: 15rem;
-
 }
 
 .main img {
@@ -98,7 +97,6 @@ export default {
   width: 15rem;
   height: 15rem;
   transition: all .3s;
-
 }
 
 a {

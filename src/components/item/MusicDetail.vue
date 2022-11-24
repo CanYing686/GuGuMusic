@@ -25,7 +25,7 @@
     </div>
 
     <div class="footerContent">
-      <input type="range" class="range" min="0" :max="duration" v-model="this.currentTime" step="0.05">
+      <input type="range"  class="range" min="0"  :max="duration" v-model="this.currentTime" step="0.05">
     </div>
 
     <div class="detail__footer">

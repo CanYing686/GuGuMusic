@@ -1,5 +1,6 @@
 import {createStore} from 'vuex';
 import {getMusicLyric} from "@/request/api/musicListItem";
+import {getPhoneLogin} from "@/request/api/home";
 
 export default createStore({
     state: {
@@ -22,7 +23,10 @@ export default createStore({
         detailShow: false,
         lyricList: {},
         currentTime: 0, //当前时间
-        duration: 0
+        duration: 0,
+        token: "",
+        cookie: "",
+        vip: 0
     },
     mutations: {
         updateIsBtnShow: function (state, value) {
@@ -49,12 +53,24 @@ export default createStore({
         },
         pushPlayList: function (state, value) {
             state.playList.push(value);
+        },
+        updateToken:function (state,value){
+            state.token = value
+            localStorage.setItem('token',state.token)
+        },
+        updateVipType:function (state,value){
+            state.vip = value
+            console.log(state.vip)
         }
     },
     actions: {
         getLyric: async function (context, value) {
             let res = await getMusicLyric(value)
             context.commit("updateLyricList", res.data.lrc);
+        },
+
+        getLogin:async function (context,value){
+            return await getPhoneLogin(value)
         }
     },
     modules: {}
